@@ -4,13 +4,26 @@ Use this as a checklist / roadmap for building the backend.
 
 ---
 
+## Current Implementation Status (snapshot)
+
+- **Core app & config**: FastAPI app entrypoint in `main.py` with CORS, structured logging, and global error handlers; configuration via `src/core/config.py`.
+- **Errors & logging**: Centralized error types in `src/core/errors.py` and JSON/console logging in `src/core/logging_config.py`.
+- **Database client**: Supabase client helper implemented in `src/services/database.py` (no repository layer yet).
+- **Auth & security**: API-key based auth dependency in `src/api/dependencies/auth.py` wired to Supabase `api_keys` table.
+- **Domain models**: Pydantic models for clients, codebooks, and jobs in `src/models/`.
+- **API routing**: Routers for health/auth/clients/codebooks/versions/jobs are registered in `main.py`, but route modules under `src/api/routes/` have not been created yet.
+- **Integrations**: Pinecone, LLM client, workers, and semantic search are not yet implemented (only error types/config fields exist).
+- **Frontend**: Frontend dashboard is planned in Phase 7; `frontend/` project has not been created yet.
+
+---
+
 ## Phase 0 – Project Setup
 
-- [ ] Choose backend stack (e.g. Node/TypeScript, Python/FastAPI).
-- [ ] Initialize project (package manager, basic folder structure).
-- [ ] Add configuration loader (env variables).
-- [ ] Add logger and basic error-handling middleware.
-- [ ] Initialize Git repo and commit scaffold.
+- [x] Choose backend stack (e.g. Node/TypeScript, Python/FastAPI).
+- [x] Initialize project (package manager, basic folder structure).
+- [x] Add configuration loader (env variables).
+- [x] Add logger and basic error-handling middleware.
+- [x] Initialize Git repo and commit scaffold.
 
 ---
 
@@ -18,7 +31,7 @@ Use this as a checklist / roadmap for building the backend.
 
 - [ ] Create Supabase project.
 - [ ] Apply SQL schema from `DATA_MODEL.md` (or adapted version).
-- [ ] Implement DB client module (Supabase SDK or Postgres driver).
+- [x] Implement DB client module (Supabase SDK or Postgres driver).  _(Implemented in `src/services/database.py`, uses `SUPABASE_URL` and `SUPABASE_SERVICE_KEY`.)_
 - [ ] Implement repository layer for:
   - [ ] Clients
   - [ ] Codebooks
@@ -74,6 +87,8 @@ Use this as a checklist / roadmap for building the backend.
 - [ ] `GET /clients/{clientId}/audit-log` – view audit entries.
 - [ ] `GET /clients/{clientId}/search` – semantic search via Pinecone.
 
+_Note: API surface is fully designed and documented in `API.md`, but endpoints are not yet implemented in `src/api/routes/`._
+
 ---
 
 ## Phase 5 – Testing & Hardening
@@ -92,3 +107,26 @@ Use this as a checklist / roadmap for building the backend.
 - [ ] Set environment variables in deployment platform.
 - [ ] Document deploy steps in `README.md`.
 - [ ] Set up basic monitoring/alerts (if available).
+
+---
+
+## Phase 7 – Frontend Dashboard & Preview
+
+- [ ] Create React + TypeScript frontend using Vite in `frontend/`.
+  - Template: `react-ts`.
+  - UI stack: Material-UI (MUI), React Router, React Query, Axios.
+- [ ] Implement core layout and pages:
+  - [ ] Dashboard listing clients/codebooks.
+  - [ ] Codebook detail page with items and versions.
+  - [ ] Not Found (404) page.
+- [ ] Implement components:
+  - [ ] Codebook items table with search/pagination.
+  - [ ] Version history list with compare/restore actions (wired to backend when ready).
+  - [ ] Loading and error states.
+- [ ] API integration (real data – no mocks in main flow):
+  - [ ] Configure `VITE_API_BASE_URL` (e.g. `http://localhost:8000/api`).
+  - [ ] Call the REST endpoints defined in `API.md` for clients, codebooks, versions, and items.
+- [ ] Local preview steps (for future sessions):
+  - [ ] Backend: run FastAPI app on `http://localhost:8000`.
+  - [ ] Frontend: from `frontend/`, run `npm install` then `npm run dev`.
+  - [ ] Open the Vite URL in a browser (typically `http://localhost:5173`).
