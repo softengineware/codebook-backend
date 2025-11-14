@@ -5,7 +5,8 @@
       "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: Construction Codebook AI Backend specifications\n\nThis repository contains comprehensive specifications for an AI-powered\nconstruction codebook management system.\n\nIncludes:\n- Complete data model (Supabase/PostgreSQL schema)\n- System architecture and integration patterns\n- API specifications and requirements\n- Implementation roadmap and tasks\n- Claude Code guidance document\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
       "Bash(gh --version:*)",
       "Bash(gh repo create:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
