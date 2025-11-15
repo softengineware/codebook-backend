@@ -13,25 +13,25 @@ class Settings(BaseSettings):
     APP_NAME: str = "Construction Codebook AI Backend"
     VERSION: str = "0.1.0"
     APP_ENV: str = "development"
-    PORT: int = 8000
+    PORT: int = 5000
     API_V1_PREFIX: str = "/v1"
 
     # CORS
-    CORS_ORIGINS: list[str] = ["http://localhost:3000", "http://localhost:8000"]
+    CORS_ORIGINS: list[str] = ["http://localhost:3000", "http://localhost:5000"]
 
     # Supabase
-    SUPABASE_URL: str
-    SUPABASE_SERVICE_KEY: str
+    SUPABASE_URL: str = "https://placeholder.supabase.co"
+    SUPABASE_SERVICE_KEY: str = "placeholder-key"
 
     # Pinecone
-    PINECONE_API_KEY: str
-    PINECONE_INDEX_NAME: str
+    PINECONE_API_KEY: str = "placeholder-key"
+    PINECONE_INDEX_NAME: str = "codebook-embeddings"
     PINECONE_ENVIRONMENT: str = "us-east-1"
 
     # LLM
-    LLM_API_KEY: str
+    LLM_API_KEY: str = "placeholder-key"
     LLM_MODEL_NAME: str = "gpt-4o"
-    LLM_PROVIDER: str = "openai"  # or "anthropic"
+    LLM_PROVIDER: str = "openai"
 
     # Embeddings
     EMBEDDING_MODEL_NAME: str = "text-embedding-3-large"
