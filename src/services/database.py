@@ -25,7 +25,3 @@ def get_supabase_client() -> Client:
     )
 
     return client
-
-
-# Global client instance (for use outside FastAPI dependency injection)
-supabase_client = get_supabase_client()
