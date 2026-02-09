@@ -17,9 +17,12 @@ class JobRepository:
 
     def create_job(self, data: JobCreate, status: JobStatus = "pending") -> Job:
         payload: dict[str, Any] = {
-            **data.model_dump(),
+            "client_id": str(data.client_id),
+            "job_type": data.job_type,
             "status": status,
         }
+        if data.codebook_id is not None:
+            payload["codebook_id"] = str(data.codebook_id)
 
         result = (
             self._db.table("jobs")

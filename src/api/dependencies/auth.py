@@ -79,6 +79,17 @@ async def verify_api_key(
     if not credentials or not credentials.credentials:
         raise MissingAPIKeyError()
 
+    # MVP auth bypass: skip database lookup when MVP_API_KEY is configured
+    from src.core.config import settings
+    if settings.MVP_API_KEY and credentials.credentials == settings.MVP_API_KEY:
+        return AuthContext(
+            api_key_id="mvp",
+            client_id=settings.MVP_CLIENT_ID,
+            role="admin",
+            user_id="mvp-user",
+            key_prefix="mvp",
+        )
+
     api_key = credentials.credentials
 
     # Extract key prefix (first 8 characters)

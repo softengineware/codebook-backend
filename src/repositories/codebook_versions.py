@@ -16,7 +16,27 @@ class CodebookVersionRepository:
         self._db = db
 
     def create_version(self, data: CodebookVersionCreate) -> CodebookVersion:
-        payload: dict[str, Any] = data.model_dump()
+        payload: dict[str, Any] = {
+            "codebook_id": str(data.codebook_id),
+            "version_number": data.version_number,
+        }
+        # Add optional fields if present
+        if data.label is not None:
+            payload["label"] = data.label
+        if data.notes is not None:
+            payload["notes"] = data.notes
+        if data.rules_snapshot is not None:
+            payload["rules_snapshot"] = data.rules_snapshot
+        if data.analysis_summary is not None:
+            payload["analysis_summary"] = data.analysis_summary
+        if data.analysis_details is not None:
+            payload["analysis_details"] = data.analysis_details
+        if data.prompt_version is not None:
+            payload["prompt_version"] = data.prompt_version
+        payload["is_active"] = data.is_active
+        if data.created_by is not None:
+            payload["created_by"] = data.created_by
+
         result = (
             self._db.table("codebook_versions")
             .insert(payload)

@@ -1,0 +1,21 @@
+Item,Description,Diameter,Application
+8" DIP,8 inch Ductile Iron Pipe,8,water
+12" DIP,12 inch Ductile Iron Pipe,12,water
+6" PVC SDR-26,6 inch PVC Pipe SDR-26,6,sanitary_sewer
+8" PVC SDR-26,8 inch PVC Pipe SDR-26,8,sanitary_sewer
+15" RCP Class III,15 inch Reinforced Concrete Pipe Class III,15,storm_sewer
+24" RCP Class III,24 inch Reinforced Concrete Pipe Class III,24,storm_sewer
+6" DIP Gate Valve,6 inch Ductile Iron Gate Valve,6,water
+8" DIP Gate Valve,8 inch Ductile Iron Gate Valve,8,water
+12" DIP Butterfly Valve,12 inch Ductile Iron Butterfly Valve,12,water
+4' Dia. Sanitary Manhole,4 foot Diameter Sanitary Manhole,48,sanitary_sewer
+5' Dia. Storm Manhole,5 foot Diameter Storm Manhole,60,storm_sewer
+Fire Hydrant Assembly,Complete Fire Hydrant with 6" Lead,6,water
+8" DIP 45 Bend,8 inch Ductile Iron Pipe 45 Degree Bend,8,water
+8" DIP 90 Bend,8 inch Ductile Iron Pipe 90 Degree Bend,8,water
+8" x 6" DIP Tee,8 inch x 6 inch Ductile Iron Tee,8,water
+12" x 8" DIP Reducer,12 inch to 8 inch Ductile Iron Reducer,12,water
+6" PVC Wye,6 inch PVC Wye Fitting,6,sanitary_sewer
+6" PVC Cleanout,6 inch PVC Cleanout Assembly,6,sanitary_sewer
+Storm Inlet Type A,Standard Type A Storm Inlet,0,storm_sewer
+Trench Safety Box,Trench Safety Box 8 foot depth,0,other

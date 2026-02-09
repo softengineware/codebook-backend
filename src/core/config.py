@@ -24,9 +24,13 @@ class Settings(BaseSettings):
     SUPABASE_SERVICE_KEY: str
 
     # Pinecone
-    PINECONE_API_KEY: str
-    PINECONE_INDEX_NAME: str
+    PINECONE_API_KEY: str = ""
+    PINECONE_INDEX_NAME: str = ""
     PINECONE_ENVIRONMENT: str = "us-east-1"
+
+    # MVP
+    MVP_API_KEY: str = ""
+    MVP_CLIENT_ID: str = "00000000-0000-0000-0000-000000000001"
 
     # LLM
     LLM_API_KEY: str
